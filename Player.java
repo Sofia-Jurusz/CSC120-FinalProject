@@ -4,7 +4,7 @@ public class Player extends Person{
 
     //Attributes for Player
     private ArrayList<Thing> inventory; //location of what the user has collected
-    private ArrayList<Person> people; //idkkkk
+    // private ArrayList<Person> people; //idkkkk
 
     /**
      * constructor for PLayer
