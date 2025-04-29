@@ -13,6 +13,8 @@ public class Map{
     
     }
 
+    //Methods
+    
     /**
      * Method to add a Place(s) to the map
      * @param places arraylist of places being added to the map
@@ -70,7 +72,7 @@ public class Map{
     }
 
     /**
-     * Method to print the Map
+     * Method to print the Map, only for testing
      */
     public void printMap(){
         System.out.println("");

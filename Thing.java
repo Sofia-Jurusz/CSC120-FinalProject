@@ -11,6 +11,8 @@ public class Thing{
         this.name = name;
     }
 
+    //methods
+    
     /**
      * Acessor for a Thing's name
      * @return name
