@@ -6,8 +6,6 @@ public class Game{
     //Attributes for Game
     Player player;
 
-    Map gameMap; 
-
     //Things
     Thing twoKrabbyPatty;
     Thing oneKrabbyPatty;
@@ -22,7 +20,7 @@ public class Game{
     Place kingsCastle;
     Place yourHouse;
     Place market;
-    Place oldLadyHouse;
+    Place wiseLadyHouse;
     Place shipwreck;
     Place caveEntrance;
     Place sharkPlace;
@@ -55,57 +53,51 @@ public class Game{
         this.amulet = new Thing ("Amulet");
         this.kelpCard = new Thing("Kelp Card");
 
-        //Lists of availible directions that a player can go from certain locations
-        //they are used for when we initialize each Place
-        String[][] directions = new String [9][]; 
-        directions[0] = new String[] {"south", "west"};
-        directions[1] = new String[] {"north", "east"};
-        directions[2] = new String[]{"north","east","south"};
-        directions[3] = new String[] {"north", "west"};
-        directions[4] = new String[] {"east", "west"};
-        directions[5] = new String[] {"north"};
-        directions[6] = new String[] {"south"};
-        directions[7] = new String[] {"west"};
-
-
         //Places
-        this.krustyKrab = new Place("the Krusty Krab",directions[0],"Welcome to the Krusty Krab! Squidward is at the counter, ready to take your order.");
-        this.kingsCastle = new Place("the King's Castle",directions[1],"The King's Castle is ornate and beautiful! But nothing here can help you.");
-        this.yourHouse = new Place("your house",directions[2], "Your sister, mer-Maya, stands in the kitchen with her pet angler fish, Jörmungandr.");
-        this.market = new Place("the Market",directions[3],"The Market is bustling today! Your friend, Dolphin Dave, is operating the Sea-Shell-Shack");
-        this.oldLadyHouse = new Place("Delphine's House",directions[6],"The Wise Mer-Lady, Delphine, sits in a rocking chair on her porch.");
-        this.shipwreck = new Place("the Shipwreck",directions[4],"the shipwreck is loaded with human treasures! But nothing here can help you.");
-        this.caveEntrance = new Place("the Cave Entrance",directions[7],"The cave is very dark, but you see a glow in the dark jellyfish.");
-        this.sharkPlace = new Place("the Shark's Lair",directions[5],"You see Queen Hydra's Lair just passed you, but a large shark floats in the way.");
-        this.queensLair = new Place("Queen Hydra's Lair", directions[5],"Queen Hydra stands looming over you.");
+      
+        this.kingsCastle = new Place("the King's Castle","The King's Castle is ornate and beautiful! But nothing here can help you.");
+        this.yourHouse = new Place("your house", "Your sister, mer-Maya, stands in the kitchen with her pet angler fish, Jörmungandr.");
+        this.wiseLadyHouse = new Place("Delphine's House","The Wise Mer-Lady, Delphine, sits in a rocking chair on her porch.");
+        this.market = new Place("the Market","The Market is bustling today! Your friend, Dolphin Dave, is operating the Sea-Shell-Shack");
+        this.krustyKrab = new Place("the Krusty Krab","Welcome to the Krusty Krab! Squidward is at the counter, ready to take your order.");
+        this.shipwreck = new Place("the Shipwreck","the shipwreck is loaded with human treasures! But nothing here can help you.");
+        this.caveEntrance = new Place("the Cave Entrance","The cave is very dark, but you see Jellyfish Jack hanging out nearby.");
+        this.sharkPlace = new Place("the Shark's Lair","You see Queen Hydra's Lair just south of you, but a large shark floats in the way.");
+        this.queensLair = new Place("Queen Hydra's Lair","Queen Hydra stands looming over you.");
+            
 
-        //Making the game Map 
-        ArrayList<Place> rowZero = new ArrayList<Place>();
-            rowZero.add(oldLadyHouse);
-            rowZero.add(shipwreck);
-            rowZero.add(caveEntrance);
+        //adding neighbors to each place
+        this.kingsCastle.addToNeighbors("north", this.yourHouse);
+        this.kingsCastle.addToNeighbors("east", this.market);
+    
+        this.yourHouse.addToNeighbors("north", this.wiseLadyHouse);
+        this.yourHouse.addToNeighbors("east", this.krustyKrab);
+        this.yourHouse.addToNeighbors("south", this.kingsCastle);
 
-        ArrayList<Place> rowOne = new ArrayList<Place>();
-            rowOne.add(yourHouse);
-            rowOne.add(krustyKrab);
-            rowOne.add(sharkPlace);
+        this.wiseLadyHouse.addToNeighbors("south", this.yourHouse);
+
+        this.market.addToNeighbors("north", this.krustyKrab);
+        this.market.addToNeighbors("west", this.kingsCastle);  
         
-        ArrayList<Place> rowTwo = new ArrayList<Place>();
-            rowTwo.add(kingsCastle);
-            rowTwo.add(market);
-            rowTwo.add(queensLair);
+        this.krustyKrab.addToNeighbors("west",this.yourHouse);
+        this.krustyKrab.addToNeighbors("south", this.market);
 
-        this.gameMap = new Map();
+        this.shipwreck.addToNeighbors("east", this.caveEntrance);
+        this.shipwreck.addToNeighbors("west",this.wiseLadyHouse);
 
-        this.gameMap.addToMap(rowZero);
-        this.gameMap.addToMap(rowOne);
-        this.gameMap.addToMap(rowTwo);
+        this.caveEntrance.addToNeighbors("west", this.shipwreck);
+
+        this.sharkPlace.addToNeighbors("north", this.caveEntrance);  
+        
+        this.queensLair.addToNeighbors("north", this.sharkPlace);
 
         //Making the People
+        //the order in which the conversationBits is added to the person matters. 
+        //different the conversation class runs in a certain order
         this.people = new ArrayList<Person>();
 
-        String[] delphineNames = new String[]{"delphine","lady"};
-        this.delphine = new WiseLady(delphineNames,oldLadyHouse);
+        String[] delphineNames = new String[]{"delphine","lady","wise"};
+        this.delphine = new WiseLady(delphineNames,wiseLadyHouse);
 
             delphine.addToInventory(this.kelpCard);
             delphine.addToInventory(this.sword);
@@ -114,7 +106,7 @@ public class Game{
             delphine.addToRequirements(this.twoKrabbyPatty);
             delphine.addToRequirements(this.oysters);
             
-        String[] squidwardNames = new String[]{"squidward"};
+        String[] squidwardNames = new String[]{"squidward","squid"};
         this.squidward = new Person(squidwardNames,krustyKrab, this.twoKrabbyPatty,this.kelpCard);
             squidward.addToConversationBits(": Hello, Welcome to the Krusty Krab. Are you picking up Delphine's order?");
             squidward.addToConversationBits(": Two Krabby Patties coming right up!");
@@ -132,13 +124,12 @@ public class Game{
         this.merMaya = new Person(merMayaNames,this.yourHouse,this.anglerFish,null);
             merMaya.addToConversationBits(": Hey there mer-sib. Would you be able to take Jörmungandr on a swim? I have to go to polo practice.");
             merMaya.addToConversationBits(": Alright here you go. Don't be out too long though, he has a poker game tonight.");
-            // merMaya.addToConversationBits(": this should not be happening");
             people.add(this.merMaya);
 
         String [] jellyFishNames = new String[]{"jellyfish jack","jellyfish", "jelly","jack"};
         this.jellyFish = new Person (jellyFishNames,this.caveEntrance,null,anglerFish);
-            jellyFish.addToConversationBits(": You can't travel down this cave without something to light the way."+System.lineSeparator()+ "I'd help but I have a poker game tonight. Sorry babe.");
-            jellyFish.addToConversationBits(": This cave is pretty dark without something to light the way!!!"+System.lineSeparator()+"Oh JK you have Jörmungandr with you. See you at poker Jo!"+System.lineSeparator()+"I would DEFINETLY NOT go south. That's where the queen lives **shutters**");
+            jellyFish.addToConversationBits(": You can't travel down this cave without something to light the way."+System.lineSeparator()+ "I'd help but I have a poker game tonight. Sorry babe."+System.lineSeparator()+"My buddy Jörmungandr might be able to help.");
+            jellyFish.addToConversationBits(": Good thing you have Jörmungandr to light up the cave!"+System.lineSeparator()+"See you at poker Jo!"+System.lineSeparator()+"I would DEFINETLY NOT go south. That's where the queen lives **shutters**");
             jellyFish.addToConversationBits("I'm gonna win big tonight at poker!");
             people.add(this.jellyFish);
 
@@ -188,40 +179,43 @@ public class Game{
             String[] playerInputList = playerInputString.split(" ");
             int listLength = playerInputList.length;
  
-            if (playerInputList[0].equalsIgnoreCase("swim")){ 
-                this.player.swim(playerInputList[1],this.gameMap);
-
-            } else if (playerInputList[0].equalsIgnoreCase("help")){
+            if (playerInputList[0].equalsIgnoreCase("swim")){ // if the player wants to move to a new Place
+                if (listLength == 1) {
+                    System.out.println("Sorry, I don't know where you want swim."+System.lineSeparator()+ "Make sure you type a direction[north, east, south, west] after swim");
+                } else {
+                    this.player.swim(playerInputList[1]);
+                }
+                
+            } else if (playerInputList[0].equalsIgnoreCase("help")){ // prints out the availible commands
                 this.player.printOptions();
 
-            } else if (playerInputList[0].equalsIgnoreCase("explore")){
+            } else if (playerInputList[0].equalsIgnoreCase("explore")){ // gives description of their current location
                 this.player.location.explore();
 
-            } else if(playerInputList[0].equalsIgnoreCase("talk") && playerInputList[1].equalsIgnoreCase("to")) {
+            } else if(playerInputList[0].equalsIgnoreCase("talk")) { // if the player talks to someone
     
-                if (listLength == 2){
+                if (listLength == 2 || listLength == 1){ // if the player only types 'talk to'
                     System.out.println("Sorry, I don't know who you want to talk to.");
                 
-                } else {
-                    Boolean talkToSomeone = false;
-                    for (int i = 0; i < this.people.size(); i++){ 
+                } else if (playerInputList[1].equalsIgnoreCase("to")) {
+                    Boolean talkToSomeone = false; // this value decides whether the player successfully tried to initiate a conversation with a valid person
+                    for (int i = 0; i < this.people.size(); i++){ //first sees if they want to talk to a regular person
                         Person convoPerson = this.people.get(i);
 
-                        for (int k = 0; k < convoPerson.getNameList().length;k++) {
+                        for (int k = 0; k < convoPerson.getNameList().length;k++) { 
 
                             if (convoPerson.getNameList()[k].equalsIgnoreCase(playerInputList[2])) {
                                 if (convoPerson.getLocation()==player.getLocation()) {
-                                    if (convoPerson == this.jellyFish){
-                                        String[] newAvailibleDirections = new String[]{"west", "south"};
-                                        convoPerson.conversation(this.player,myScanner,newAvailibleDirections);
+                                    if (convoPerson == this.jellyFish){ // the jellyfish has a special conversation method
+                                        convoPerson.conversation(this.player,myScanner,"south",this.sharkPlace);
                                         talkToSomeone = true;
                                         break;
-                                    } else {
+                                    } else { // if the player wants to talk to a regular person
                                         convoPerson.conversation(this.player,myScanner);
                                         talkToSomeone = true;
                                         break;
                                     }  
-                                } else {
+                                } else { // if the player tries to talk to someone outside of their current location
                                     System.out.println("Sorry, "+convoPerson.getName()+" is not at "+player.getLocation().getName());
                                     talkToSomeone = true;
                                     break;
@@ -229,52 +223,52 @@ public class Game{
                             } else {
                                 continue;
                             }
-                        } if (delphine.getName().equalsIgnoreCase(playerInputList[2])) {
-                            if (player.getLocation()==this.oldLadyHouse) {
-                                delphine.conversation(this.player);
+                        } if (delphine.getName().equalsIgnoreCase(playerInputList[2])) { // if the player wants to talk to delphine
+                            if (player.getLocation()==this.wiseLadyHouse) {
+                                delphine.conversation(this.player, this.shipwreck);
                                 talkToSomeone = true;
                                 break;
-                            } else {
+                            } else { // if the player tries to talk to delphine while not at her house
                                 System.out.println("Sorry, Delphine is not at "+player.getLocation().getName());
                                 talkToSomeone = true;
                                 break;
                             }
-                        } if (this.shark.checkName(playerInputList[2])) {
+                        } if (this.shark.checkName(playerInputList[2])) { // if the player wants to talk to the shark
                             if (player.getLocation()==this.sharkPlace) {
-                                this.shark.conversation(this.player,myScanner);
+                                this.shark.conversation(this.player,myScanner,this.queensLair);
                                 talkToSomeone = true;
                                 break;
-                            } else {
+                            } else { // if the player tries to talk to the shark outside of his lair
                                 System.out.println("Sorry, Carl the Shark is not at "+player.getLocation().getName());
                                 talkToSomeone = true;
                                 break;
                             }
-                        } if (this.queen.checkName(playerInputList[2])){
+                        } if (this.queen.checkName(playerInputList[2])){ // if the player tries to talk to the queen
                             if (player.getLocation()==this.queensLair) {
                                 this.queen.conversation(this.player,myScanner);
                                 talkToSomeone = true;
                                 counter = 0;
                                 break;
-                            } else {
+                            } else { // if the player tries to talk to the queen outside her lair
                                 System.out.println("Sorry, the Queen is not at "+player.getLocation().getName());
                                 talkToSomeone = true;
                                 break;
                             }
                         }
                     }
-                    if (talkToSomeone == false) {
+                    if (talkToSomeone == false) { // if the player tries to talk to a character that is not apart of the game
                         System.out.println("I don't know who you want to talk to, try typing the command again.");
                         continue;
                     }
                 }
-            } else if (playerInputList[0].equalsIgnoreCase("exit")){
-
+            } else if (playerInputList[0].equalsIgnoreCase("exit")){ // if the player wants to leave the game
                 counter = 0;
-            } else if(playerInputList[0].equalsIgnoreCase("check") && playerInputList[1].equalsIgnoreCase("inventory") ){
+
+            } else if(playerInputList[0].equalsIgnoreCase("check") && playerInputList[1].equalsIgnoreCase("inventory") ){ // print's players inventory
 
                 this.player.printInventory();
 
-            } else {
+            } else { // if the player tries any other command that cannot be used in the game
                 System.out.println("Sorry, I do not recognize that command. Type 'help' to print the availible commands.");
             }
         }
@@ -283,6 +277,8 @@ public class Game{
         myScanner.close();
         
     }
+
+    //main for testing
     public static void main(String[] args) {
         System.out.println();
         Game game = new Game();

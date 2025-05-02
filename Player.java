@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Player extends Person{
+public class Player extends complexPerson{
 
     //Attributes for Player
     protected ArrayList<Thing> inventory;
@@ -30,35 +30,20 @@ public class Player extends Person{
     }
 
     /**
-     * allows the player to 'swim' to certain locations
-     * @param direction the way they'd like to swim
-     * @param map the map the user is trying to move within
+     * Allows a player to "swim" from one Place to another Place, if there is a pathway between two places
+     * @param direction the direction the player wants to swim
      */
-    public void swim(String direction, Map map){
+    public void swim(String direction) {
         System.out.println("Swimming "+direction+"....");
-        int currentRowNum = map.getRow(this.location);
-        int currentColumnNum = map.getColumn(this.location);
-        if (this.location.checkDirections(direction)){
-
-            if (direction.equalsIgnoreCase("north")){
-                this.location = map.getLocation(currentRowNum-1,currentColumnNum);
-
-            } else if (direction.equalsIgnoreCase("east")){
-                this.location = map.getLocation(currentRowNum,currentColumnNum+1);
-
-            } else if (direction.equalsIgnoreCase("south")){
-                this.location = map.getLocation(currentRowNum+1,currentColumnNum);
-
-            } else if (direction.equalsIgnoreCase("west")){
-                this.location = map.getLocation(currentRowNum,currentColumnNum-1);
-
-            }
-        } else {
-            System.out.println("Sorry, you can't go "+ direction + " from "+ this.location.getName());
+        if (this.location.getNeighbor(direction) == null) {
+            System.out.println("You cannot swim "+direction+" from "+this.location.getName());
             return;
-        }
-        this.printLocation();
-    } 
+        } else {
+            this.location = this.location.getNeighbor(direction);
+            this.printLocation();
+            return;
+        }    
+    }
 
     /**
      * adds a thing to a player's inventory and prints a string so the use knows it is in their inventory
@@ -73,23 +58,6 @@ public class Player extends Person{
         }  
     }
 
-    /**
-     * removes a thing from a player's inventory
-     * @param thing what we want to remove
-     */
-    public void removeFromInventory (Thing thing){
-        this.inventory.remove(thing);
-    }
-
-    /**
-     * removes a list of things from a player's inventory
-     * @param things the list of what we want to remove
-     */
-    public void removeFromInventory(ArrayList<Thing> things){
-        for (int i = 0; i< things.size();i++){
-            this.removeFromInventory(things.get(i));
-        }
-    }
 
     /**
      * accessor for player's inventory

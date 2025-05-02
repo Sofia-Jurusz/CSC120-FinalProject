@@ -1,9 +1,11 @@
+import java.util.Hashtable;
+
 public class Place {
 
     // Place Attributes
     private String name; //place's name
     private String exploreString; //gives description of the place to the player
-    private String[] availibleDirections; //the directions you can move in a place
+    private Hashtable <String, Place> neighbors; //Hashtable of a Place's neighbors and how to get there
 
     /**
      * Constructor for Place
@@ -11,14 +13,15 @@ public class Place {
      * @param availibleDirections
      * @param exploreString
      */
-    public Place(String name, String[] availibleDirections, String exploreString){
+    public Place(String name, String exploreString){
         this.name = name;
         this.exploreString = exploreString;
-        this.availibleDirections = availibleDirections;
+        // this.availibleDirections = availibleDirections;
+        this.neighbors = new Hashtable<String, Place>();
     }
 
     //Methods
-    
+
     /**
      * accessor for Place's name
      * @return Place's name
@@ -27,41 +30,22 @@ public class Place {
         return this.name.toString();
     }
 
-    // /**
-    //  * Prints directions availible for a place
-    //  */
-    // public void printDirections(){
-    //     System.out.println();
-    //     System.out.println( "From the " +this.name+ " you can go:");
-    //     for (int i = 0; i < availibleDirections.length;i++){
-    //         System.out.println(availibleDirections[i]);
-    //     }
-    // }
-
     /**
-     * Accessor for availible directions
-     * @return availible Directions
+     * Accessor for a place's neighbors
+     * @param direction the direction player wants to go from current location
+     * @return the Place assocciate with going a certain direction
      */
-    public String[] getDirections(){
-        return this.availibleDirections;
+    public Place getNeighbor(String direction){
+        return this.neighbors.get(direction);
     }
 
     /**
-     * checks if a user can go to a certain direction from a place
-     * @param direction the direction the user wants to move
-     * @return true if the direction is valid
+     * Adds a neighbor to the Hashtable neighbors
+     * @param direction the direction associated with a place
+     * @param place the Place we want to beocme a neighbor
      */
-    public boolean checkDirections(String direction){
-        direction = direction.toLowerCase();
-        for (int i = 0;i<this.availibleDirections.length;i++){
-            String listDirection = this.availibleDirections[i];
-            if (listDirection.equalsIgnoreCase(direction)){
-                return true;
-            } else {
-                continue;
-            }
-        } 
-        return false;
+    public void addToNeighbors(String direction, Place place){
+        this.neighbors.put(direction, place);
     }
 
     /** 
@@ -70,14 +54,6 @@ public class Place {
     public void explore(){
        System.out.println(this.exploreString);
         
-    }
-
-    /**
-     * Changes the directions you can go from a place
-     * @param newAvailibleDirection
-     */
-    public void changeAvailibleDirections(String[] newAvailibleDirection){
-        this.availibleDirections= newAvailibleDirection;
     }
 
 }

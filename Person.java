@@ -15,7 +15,7 @@ public class Person{
     //Constructors for Person
 
     /**
-     * constructor for person
+     * full constructor for person
      * @param names list of names a person can be refered to as
      * @param location the location of the person
      * @param item a person's item
@@ -132,21 +132,22 @@ public class Person{
             }
 
         } else { // if the player has already met the 'challenge' associated with the Person, they cannot re-engage with the same challenege
-            System.out.println(this.names[0]+": Good seeing you again "+player.getName()+"! But I don't have anything else for you.");
+            System.out.println(this.names[0]+": Gotta run "+player.getName()+"! Gonna be late for poker!");
         }      
     }
 
-    /**
-     * Alternate conversation method where the availible directions for a location are changed
-     * @param player who's having the conversation 
-     * @param myScanner for user interaction
-     * @param newAvailibleDirections the new directions we want a player to be able to go from a location
-     */
-    public void conversation(Player player, Scanner myScanner, String[] newAvailibleDirections){
+     /**
+      * Alternate conversation method where the availible directions for a location are changed
+      * @param player who's having the conversation 
+      * @param myScanner for user interaction
+      * @param newDirection the new direction they can swim from the player's current location
+      * @param newNeighbor the place the player will swim by swimming the added direction
+      */
+    public void conversation(Player player, Scanner myScanner, String newDirection, Place newNeighbor){
         if (this.talkToCount==0) { //if this is the first time the player is talking to the character
             if (player.getInventory().contains(this.requirement)) {
                 System.out.println(this.names[0]+this.conversationBits.get(1));
-                this.location.changeAvailibleDirections(newAvailibleDirections);
+                this.location.addToNeighbors(newDirection, newNeighbor);
                 this.talkToCount=this.talkToCount+1;
             } else { 
                 System.out.println(this.names[0]+this.conversationBits.get(0));
