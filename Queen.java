@@ -22,7 +22,7 @@ public class Queen extends Person {
     public void conversation(Player player, Scanner scanner){
         System.out.println("**********************************************************");
         System.out.println("[sword in hand, you face the mighty Evil Mer-Queen]");
-        System.out.println(this.names[0]+": Greetings young mer! I am Queen Hydra. How you surpassed my many guardians alludes me!!");
+        System.out.println(this.names[0]+": Greetings young mer! I am Queen Hydra. How you surpassed my many guards alludes me!!");
         System.out.println("My ANNOYING brother must have sent you to 'rescue' his poor daughter");
         System.out.println("Ahhh, but by that hideous amulet I see you have been sent by my good friend Delphine.");
         System.out.println("Aqua Pearl, it is safe to come out!");
@@ -34,7 +34,7 @@ public class Queen extends Person {
         System.out.println("but father beleives art is useless and wants me to study finance **eye roll**");
         System.out.println("My only choice was to run away to my aunt's cave. Please, you mus'nt return me to the castle!");
         System.out.println("**********************************************************");
-        System.out.println("[you are faced with the impossible decision; do you return Aqua Pearl to her father and gain the entire Pacific Ocean,"+System.lineSeparator()+"or do you allow her to live out her dream and study the arts?!?!?!?]");
+        System.out.println("[you are faced with the impossible decision;"+System.lineSeparator()+ "do you return Aqua Pearl to her father and gain the entire Pacific Ocean,"+System.lineSeparator()+"or do you allow her to live out her dream and study the arts?!?!?!?]");
         System.out.println(this.names[0]+": So young mer, will you return Aqua Pearl to the Castle? Your fate lies in this decision");
         
         int continueLoop = 1;
@@ -53,7 +53,7 @@ public class Queen extends Person {
                 System.out.println(this.names[0]+": Delphine was correct in choosing you for this journery young mer!! I applaud you and your righteousness!");
                 System.out.println("Aqua Pearl: Oh thank you "+player.getName()+", I will forever be indepted to your kindess!");
                 System.out.println();
-                System.out.println("[Congratulations "+player.getName()+"! You have won the game for your excellent moral standards!"+System.lineSeparator()+" The princess was so impressed by your goodness that she fell in love with you!"+System.lineSeparator()+"Now you both live happily in a cute little mer-cottage.]");
+                System.out.println("[Congratulations "+player.getName()+"! You have won the game for your excellent moral standards!"+System.lineSeparator()+"The princess was so impressed by your goodness that she fell in love with you!"+System.lineSeparator()+"Now you both live happily in a cute little mer-cottage.]");
                 continueLoop = 0;
                 break;
     

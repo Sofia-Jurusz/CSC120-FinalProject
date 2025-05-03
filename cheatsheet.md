@@ -27,9 +27,9 @@ If your game includes challenges that must be overcome to win, also list them be
 the file 'GameMap.png' contains the game map. Blue pathways are always accessible to a player, as long as they are in the corresponding location. Pink pathways are opened one at a time, once a player completes a certain challenge. 
 
 # SPOILER ALERT: Challenges
-1. First, you need to retreive delphine's errands (krabby patties and oyseters) and bring them to her. once this is complete, she will give you one krabby patty, a sword, and an amulet. she opens up her passage to the east.
+1. First, you need to talk to delphine and retreive her errands (krabby patties and oyseters). Once this is complete, she will give you one krabby patty, a sword, and an amulet. she opens up her passage to the east.
 
-2. Next, you need to retreive Jörmungandr from mer-maya. You are able to get Jörmungandr at any point in the game, even before you finish Delphine's challange. But you may not realize you need him until after completing Delphine's challenger, where she tells you the cave is dark. If you do not have him, you won't be able to move in the cave. 
+2. Next, you need to retreive Jörmungandr from mer-maya. You are able to get Jörmungandr at any point in the game, even before you finish Delphine's challange. But you may not realize you need him until after completing Delphine's challenge, where she tells you the cave is dark. If you do not have him, you won't be able to move in the cave. 
 
 3. Next, you will find the shark guarding the cave. When you talk to him, you can either use the krabby patty or the sword. However, if you use the sword he won't actually let you past. Instead, you must give him the krabby patty.
 
@@ -46,7 +46,7 @@ if you are confused on how to win, here are step by step instructions for how to
 6. you can 'explore' or just 'talk to dave'. respond 'yes' when he asks if you are picking up her order.
 7. swim west, then north twice. you will arrive at delphine's house.
 8. talk to delphine. she opens up the east passage and tells you you need something to light the cave.
-9. swim south to your house and 'talk to mer-maya'. say yes on taking Jörmungandr for a walk (he is an angler fish)
+9. swim south to your house and 'talk to mer-maya'. say yes on taking Jörmungandr for a swim (he is an angler fish and can light up the cave)
 10. swim north and then swim east twice until you are at the cave entrance
 11. If you type 'explore', you will see a jellyfish. type 'talk to jellyfish'
 12. now you will be able to swim south.

@@ -128,8 +128,8 @@ public class Game{
 
         String [] jellyFishNames = new String[]{"jellyfish jack","jellyfish", "jelly","jack"};
         this.jellyFish = new Person (jellyFishNames,this.caveEntrance,null,anglerFish);
-            jellyFish.addToConversationBits(": You can't travel down this cave without something to light the way."+System.lineSeparator()+ "I'd help but I have a poker game tonight. Sorry babe."+System.lineSeparator()+"My buddy Jörmungandr might be able to help.");
-            jellyFish.addToConversationBits(": Good thing you have Jörmungandr to light up the cave!"+System.lineSeparator()+"See you at poker Jo!"+System.lineSeparator()+"I would DEFINETLY NOT go south. That's where the queen lives **shutters**");
+            jellyFish.addToConversationBits(": You can't travel down this cave without something to light the way."+System.lineSeparator()+ "I'd help but I have a poker game tonight. Sorry babe."+System.lineSeparator()+"But my buddy Jörmungandr might be able to help.");
+            jellyFish.addToConversationBits(": Good thing you have Jörmungandr to light up the cave!"+System.lineSeparator()+"I would DEFINETLY NOT go south. That's where the queen lives **shutters**");
             jellyFish.addToConversationBits("I'm gonna win big tonight at poker!");
             people.add(this.jellyFish);
 

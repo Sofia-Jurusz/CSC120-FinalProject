@@ -52,4 +52,5 @@ public class complexPerson extends Person {
             this.removeFromInventory(things.get(i));
         }
     }
+
 }

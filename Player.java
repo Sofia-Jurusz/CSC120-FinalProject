@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Player extends complexPerson{
 
     //Attributes for Player
-    protected ArrayList<Thing> inventory;
     protected String name;
 
 
@@ -14,8 +13,7 @@ public class Player extends complexPerson{
      */
     public Player(String name, Place location){
         super(location);
-        this.name = name;
-        this.inventory = new ArrayList<Thing>(); 
+        this.name = name; 
         
     }
 

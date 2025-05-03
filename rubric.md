@@ -17,13 +17,13 @@ yes 1 pt: Some paths through the game have **restricted access** until the playe
 
 yes 2 pts: Selected classes(s) are **effective, efficient** at supporting the desired operations and program behavior.
 
-_____ 2 pts: Design justification includes a discussion of at least one (reasonable) **alternative design** that could have been used, and the reasons why you decided against this alternative.
+yes 2 pts: Design justification includes a discussion of at least one (reasonable) **alternative design** that could have been used, and the reasons why you decided against this alternative.
 
 yes 2 pts: The project makes effective use of **Java built-in classes** whenever they are appropriate.
 
-_____ 2 pts: The project's design is **extensible** (i.e. someone else could pick up where you left off, adding on or modifying the game without requiring a total rewrite).
+yes 2 pts: The project's design is **extensible** (i.e. someone else could pick up where you left off, adding on or modifying the game without requiring a total rewrite).
 
-_____ 2 pts: Submission includes an **architecture diagram** describing the relationships between all classes.
+es 2 pts: Submission includes an **architecture diagram** describing the relationships between all classes.
 
 
 ## General Items (10 pts):
@@ -31,18 +31,18 @@ yes 4 pts: Program compiles without errors or warnings.
 
 yes 2 pts: Executes fully & consistently without crashing (exception/freeze).
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+yes 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments.
+      yes Classes & class members all have Javadoc header comments.
 
-      _____ Clear and consistent indentation of bracketed sections.
+      yes Clear and consistent indentation of bracketed sections.
 
-      _____ Adheres to Java conventions on naming & capitalization.
+      yes Adheres to Java conventions on naming & capitalization.
 
-      _____ Methods & variables all have clear and accurate names.
+      yes Methods & variables all have clear and accurate names.
 
-      _____ Methods avoid confusing side effects.
+      yes Methods avoid confusing side effects.
 
-_____ 1 pt: All required files included with submission (including completed checklist file).
+yes 1 pt: All required files included with submission (including completed checklist file).
 
-_____ 1 pt: `readme.md` contains your reflection on the project and responses to all prompts .
+yes 1 pt: `readme.md` contains your reflection on the project and responses to all prompts .

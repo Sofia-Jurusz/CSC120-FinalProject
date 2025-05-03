@@ -61,11 +61,11 @@ public class WiseLady extends complexPerson{
                 System.out.println("It's alittle gaudy for my taste, but you could pull it off.");
                 System.out.println("************************");
                 System.out.println();
+                player.removeFromInventory(this.requirements);
+                player.removeFromInventory(this.inventory.get(0));
                 player.addToInventory(this.inventory.get(1));
                 player.addToInventory(this.inventory.get(2));
                 player.addToInventory(this.inventory.get(3));
-                player.removeFromInventory(this.requirements);
-                player.removeFromInventory(this.inventory.get(0));
 
                 this.location.addToNeighbors("east", newNeighbor); //opening up her secret passage so the player can travel to the cave
                 this.completedTask = true;
