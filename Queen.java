@@ -41,7 +41,7 @@ public class Queen extends Person {
         while (continueLoop == 1) { // the final challenge of the game, the player must decide if they will let Aqua Pearl free or not
             String playerResponse = scanner.nextLine();
             if (playerResponse.equalsIgnoreCase("yes")) { // if the brings her back to the castle, the player loses
-                System.out.println(this.names[0]+": You have disappointed me young mer, I thought your moral standings would be higher. I have no choice but to execute you.");
+                System.out.println(this.names[0]+": You have disappointed me young mer, I thought your moral standings would be higher."+System.lineSeparator()+ "I have no choice but to execute you.");
                 System.out.println("[You let your desire for material goods outway the happiness of others!! Sorry "+player.getName()+" you have lost!]");
                 continueLoop = 0;
                 break;

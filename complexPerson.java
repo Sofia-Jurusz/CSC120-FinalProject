@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class complexPerson extends Person {
+public class ComplexPerson extends Person {
     
     //Attributes
     protected ArrayList<Thing> inventory;
@@ -10,7 +10,7 @@ public class complexPerson extends Person {
      * constructor for complex person
      * @param location
      */
-    public complexPerson(Place location){
+    public ComplexPerson(Place location){
         super(location);
         this.inventory = new ArrayList<Thing>();
     }
@@ -20,7 +20,7 @@ public class complexPerson extends Person {
      * @param names the names they go by
      * @param location
      */
-    public complexPerson(String[] names, Place location){
+    public ComplexPerson(String[] names, Place location){
         super(names,location);
         this.inventory = new ArrayList<Thing>();
     }

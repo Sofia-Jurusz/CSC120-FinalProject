@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Player extends complexPerson{
+public class Player extends ComplexPerson{
 
     //Attributes for Player
     protected String name;

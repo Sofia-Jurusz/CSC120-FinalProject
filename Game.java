@@ -253,13 +253,16 @@ public class Game{
                                 System.out.println("Sorry, the Queen is not at "+player.getLocation().getName());
                                 talkToSomeone = true;
                                 break;
-                            }
+                            } 
                         }
                     }
                     if (talkToSomeone == false) { // if the player tries to talk to a character that is not apart of the game
                         System.out.println("I don't know who you want to talk to, try typing the command again.");
                         continue;
                     }
+                } else {
+                    System.out.println("I don't know who you want to talk to, try typing the command again.");
+                    continue;
                 }
             } else if (playerInputList[0].equalsIgnoreCase("exit")){ // if the player wants to leave the game
                 counter = 0;

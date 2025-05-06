@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class WiseLady extends complexPerson{
+public class WiseLady extends ComplexPerson{
 
     //Attributes
     protected ArrayList<Thing> requirements;
